@@ -46,9 +46,9 @@ async function getArt(req: Request, res: Response, next: NextFunction): Promise 
         try {
            
             
-            let id:string= req.body.id;
+            let ID:string= req.body.id;
             let result:string;
-            result = await artServices.deleteArt(id);
+            result = await artServices.deleteArt(ID);
             res.send(result);
         } catch (e) {
             next(e);

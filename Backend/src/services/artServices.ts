@@ -26,25 +26,27 @@ async function updateArt(picture: string, artist: string, description: string, I
 
     result = await Art.updateOne({
         _id: ID
-    }, 
-       { $set: {Picture:picture,Artist:artist,Description:description}}
-    );
+    }, {
+        $set: {
+            Picture: picture,
+            Artist: artist,
+            Description: description
+        }
+    });
 
     return result;
 }
-async function deleteArt(ID:string): Promise < typeof Art > {
+async function deleteArt(ID: string): Promise < typeof Art > {
 
     let result: typeof Art;
-
-    result = await Art.remove({_id:ID}, function (err: any, data: any) {
-     if(err){
-         console.log(err);
-         
-     }
+    result = await Art.deleteOne({
+        _id: ID
+    }, function (err: any, data: any) {
+        if (err) {
+            console.log(err, "error");
+            throw new Error("error in deleteing user");
+        }
     });
-    console.log(result,"after delete");
-    
-
     return result;
 
 }

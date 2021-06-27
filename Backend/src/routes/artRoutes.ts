@@ -1,9 +1,8 @@
 import {Request,Response} from "express";
 const express = require('express')
+const artController = require('../controllers/artController');
 let app = express.Router()
-app.get('/art', function (req:Request, res:Response) {
-    res.send('All art');
-});
+app.get('/art', artController.getArt);
 app.post('/art', function (req:Request, res:Response) {
     res.send('View Blogs' + req.params.id);
 });

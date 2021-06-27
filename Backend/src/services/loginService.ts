@@ -3,6 +3,7 @@
      Response,
      NextFunction
  } from "express";
+import { nextTick } from "process";
  var User = require("../models/userModel");
  const jwt = require("jsonwebtoken");
 
@@ -12,19 +13,17 @@
      let token: string;
 
      //1- Exchange email for saved password
-     const userData: any = await User.findOne({
+     const userData: typeof User = await User.findOne({
          Email: email
      });
      //2 - check if the user exists or not in DB 
      if (userData === null) {
-         token = "make sure you have register this user";
-         return token;
+        throw new Error("Invalid Credentials");
      }
 
      //3- Compare passwords user entered vs stroed in DB   .
      if (userData.Password !== password) {
-         token = "user credentials are not correct";
-         return token;
+        throw new Error("Invalid Credentials");
      }
      //4- Create token for the user logged in user.
      const signedUserData = {
@@ -36,7 +35,7 @@
      }, "secretkey", {
          expiresIn: '1800s'
      });
-
+     
      //6 - return generated token
      return token;
 

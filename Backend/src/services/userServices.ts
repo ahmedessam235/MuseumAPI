@@ -25,7 +25,7 @@ async function createUser(email: string, password: string, role: string, phoneNu
 
         });
     } else {
-        result = "This Email already exists"
+        throw new Error("This Email Exists");
     }
     return result;
 }

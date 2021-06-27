@@ -3,14 +3,8 @@ const express = require('express')
 const artController = require('../controllers/artController');
 let app = express.Router()
 app.get('/art', artController.getArt);
-app.post('/art', function (req:Request, res:Response) {
-    res.send('View Blogs' + req.params.id);
-});
-app.put('/art', function (req:Request, res:Response) {
-    res.send('View Blogs' + req.params.id);
-});
-app.delete('/art', function (req:Request, res:Response) {
-    res.send('View Blogs' + req.params.id);
-});
+app.post('/art', artController.addArt);
+app.put('/art',  artController.updateArt);
+app.delete('/art',artController.deleteArt);
 module.exports = app
 

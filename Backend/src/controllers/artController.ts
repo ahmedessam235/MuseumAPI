@@ -15,34 +15,45 @@ async function getArt(req: Request, res: Response, next: NextFunction): Promise 
             next(e);
         }
     }
-    // async function addArt(req: Request, res: Response, next: NextFunction): Promise < void > {
-    //     try {
+    async function addArt(req: Request, res: Response, next: NextFunction): Promise < void > {
+        try {
            
-    //         let email:string = req.body.email;
-    //         let password:string = req.body.password;
-    //         let role:string = req.body.role;
-    //         let phoneNumber:string = req.body.phoneNumber;
-    //         let result:string;
-    //         result = await userServices.createUser(email,password,role,phoneNumber);
-    //         res.send(result);
-    //     } catch (e) {
-    //         next(e);
-    //     }
-    // }
-    // async function loginUser(req: Request, res: Response, next: NextFunction): Promise < void > {
-    //     try {
+            let Picture:string = req.body.picture;
+            let Artist:string = req.body.artist;
+            let Descripton:string = req.body.description;
+            let result:string;
+            result = await artServices.addArt(Picture,Artist,Descripton);
+            res.send(result);
+        } catch (e) {
+            next(e);
+        }
+    }
+    async function updateArt(req: Request, res: Response, next: NextFunction): Promise < void > {
+        try {
            
-    //         let email:string = req.body.email;
-    //         let password:string = req.body.password;              
-    //         let result:string;
-    //         result = await loginService.loginUser(email,password);      
-    //         console.log(result,"result after operation is");
+            let Picture:string = req.body.picture;
+            let Artist:string = req.body.artist;
+            let Descripton:string = req.body.description;
+            let id:string= req.body.id;
+            let result:string;
+            result = await artServices.updateArt(Picture,Artist,Descripton,id);
+            res.send(result);
+        } catch (e) {
+            next(e);
+        }
+    }
+    async function deleteArt(req: Request, res: Response, next: NextFunction): Promise < void > {
+        try {
+           
             
-    //         res.send(result);
-    //     } catch (e) {
-    //         next(e);
-    //     }
-    // }
-  
+            let id:string= req.body.id;
+            let result:string;
+            result = await artServices.deleteArt(id);
+            res.send(result);
+        } catch (e) {
+            next(e);
+        }
+    }
 
-module.exports= { getArt};
+
+module.exports= { getArt,addArt,updateArt,deleteArt};

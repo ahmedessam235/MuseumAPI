@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const artsSchema = new mongoose.Schema ({
     Picture: String,
     Artist: String,

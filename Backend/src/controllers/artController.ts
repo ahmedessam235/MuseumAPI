@@ -10,7 +10,7 @@ async function getArt(req: Request, res: Response, next: NextFunction): Promise 
         try {
         let result:typeof Art;
         result =  await  artServices.getArt(); 
-        res.send(result);
+        res.status(200).send(result);
         } catch (e) {
             next(e);
         }

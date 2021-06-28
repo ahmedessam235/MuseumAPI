@@ -1,0 +1,9 @@
+
+.BackgroundImage { 
+  background:
+  
+  /* bottom, image */
+  url('./images/background-image.png');
+  background-size:cover;
+}
+

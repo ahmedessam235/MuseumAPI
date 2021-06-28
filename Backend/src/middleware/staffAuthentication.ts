@@ -20,8 +20,7 @@ async function authenticateAdmin(req: Request, res: Response, next: NextFunction
 
         try {
             const decodedToken = jwt.verify(adminToken, "secretkey");
-            console.log(decodedToken,"admin stuff");
-            if (decodedToken.usersigned.role !== "ADMIN"){
+            if (decodedToken.usersigned.Role !== "ADMIN"){
                 return res.status(403).json('forbidden access');
             }
             next();

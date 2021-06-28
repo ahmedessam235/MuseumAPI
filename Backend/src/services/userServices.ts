@@ -12,7 +12,7 @@ async function createUser(email: string, password: string, role: string, phoneNu
     const emailExist: any = await User.exists({
         Email:email
     }); //check if user exists or not to prevent multiple entries
-    
+  
     if (emailExist === false) {
          
         await user.save(function (err: Error) {

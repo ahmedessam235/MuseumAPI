@@ -35,9 +35,7 @@ var User = require("../models/userModel");
             let email:string = req.body.email;
             let password:string = req.body.password;              
             let result:string;
-            result = await loginService.loginUser(email,password);      
-            console.log(result,"result after operation is");
-            
+            result = await loginService.loginUser(email,password);                 
             res.send(result);
         } catch (e) {
             next(e);

@@ -1,5 +1,5 @@
 import axios from "axios";
-
+const jwt = require("jsonwebtoken");
 export async function loginUser(email, password) {
   var response = "null";
   try {
@@ -14,7 +14,18 @@ export async function loginUser(email, password) {
     return response.status;
   }
 }
-export default loginUser;
+export async function getLoggedInUser(token,contextData) {
+
+  let decodedUserData = jwt.verify(token, "secretkey"); //decode the data in JWT token
+  let globalUser = {
+    email: decodedUserData.usersigned.Email,
+    token: token,
+    role: decodedUserData.usersigned.Role,
+  }; 
+  contextData.setUser(globalUser); //update global state with user data
+ 
+}
+
 // export async function getUsertoken(email, password) {
 //   let response = await axios.post("https://ecommerce-app-everst-minds.herokuapp.com/login", {
 //     email: email,
@@ -44,20 +55,4 @@ export default loginUser;
 //   }
 // }
 
-// export async function restoreLoggedInUser(contextData) {
-//   //1  - get token from cookie
-//   var token = Cookies.get("token");
-//   // 2 - same implemetation of handle signin func
-//   //2- Call the backend again to exchange token for userinfo.
-//   let userInfo = await getUserInfo(token);
 
-//   //3- Update global variable with the userinfo.
-//   let globalUser = {
-//     email: userInfo.userEmail,
-//     token: token,
-//     isAdmin: userInfo.isadmin,
-//     cart: Cart.getProducts(),
-//   };
-//   contextData.setUser(globalUser); //update global state with user data
-//   return globalUser.email;
-// }

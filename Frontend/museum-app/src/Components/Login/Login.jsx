@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, TextField } from "@material-ui/core";
 import { Container, Grid } from "@material-ui/core";
 import "./Login.css";
-import loginUser from "../../Actions/userActions";
+import {loginUser} from "../../Actions/userActions";
 import { userDetailContext } from "../../App";
 
 const jwt = require("jsonwebtoken");

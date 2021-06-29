@@ -3,20 +3,22 @@ import React,{useEffect} from "react";
 import Art from "../Art/Art";
 import NavBar from "../NavBar/NavBar";
 import { getArt } from "../../Actions/artActions";
+import { userDetailContext } from '../../App';
+import {getLoggedInUser} from "../../Actions/userActions";
 
 function Gallery() {
     const [pictures, getPictures] = React.useState("");
-
+    var contextData = React.useContext(userDetailContext);
     useEffect(() => {
         async function fetchData() {
          var token = Cookies.get("login-token");
           const requestedArt = await getArt(token);
           getPictures(requestedArt);
+          getLoggedInUser(token,contextData);
         }  fetchData();
     }, []);
 
  if(pictures) {
-     console.log(pictures,"after rendering ");
   return (
     <div>
        <NavBar />

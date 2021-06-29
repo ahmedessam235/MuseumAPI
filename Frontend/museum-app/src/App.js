@@ -3,6 +3,8 @@ import Cookies from "js-cookie";
 import React, { useState } from "react";
 import Login from "./Components/Login/Login";
 import Gallery from "./Components/Gallery/Gallery";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AdminPanel from "./Components/AdminPanel/AdminPanel";
 export var userDetailContext = React.createContext(null); //global user state
 function App() {
   const [userDetails, setUser] = useState({
@@ -15,8 +17,17 @@ function App() {
   return (
     <div className="App">
       <userDetailContext.Provider value={value}>
-        {sessionData === undefined ? <Login /> : <Gallery />}{" "}
+      <Router>
+      <Switch>
+          <Route exact path="/">
         {/* rendring the gallery after siging in since login in the "/" directory */}
+        {sessionData === undefined ? <Login /> : <Gallery />}{" "}
+        </Route>
+        <Route path="/admin">
+              <AdminPanel />
+            </Route>
+        </Switch>
+        </Router>
       </userDetailContext.Provider>
     </div>
   );

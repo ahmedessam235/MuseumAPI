@@ -41,7 +41,7 @@ function Login() {
           role: decodedUserData.usersigned.Role,
         }; //holder for the decoded data preparing the object to update the global context variable "global variable"
 
-        Cookies.set("token", token); //adding the token in the cookie to maintain sessions
+        Cookies.set("login-token", token); //adding the token in the cookie to maintain sessions
         contextData.setUser(globalUser);
       }
     }

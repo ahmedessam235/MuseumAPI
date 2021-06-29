@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, TextField } from "@material-ui/core";
 import { Container, Grid } from "@material-ui/core";
 import "./Login.css";
-import {loginUser} from "../../Actions/userActions";
+import { loginUser } from "../../Actions/userActions";
 import { userDetailContext } from "../../App";
 import { useHistory } from "react-router-dom";
 
@@ -14,7 +14,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
-  console.log(history);
   function handleEmail(event) {
     //handles the email input from form
     setEmail(event.target.value);
@@ -41,12 +40,11 @@ function Login() {
           token: token,
           role: decodedUserData.usersigned.Role,
         }; //holder for the decoded data preparing the object to update the global context variable "global variable"
-        if(decodedUserData.usersigned.Role === "ADMIN"){
+        if (decodedUserData.usersigned.Role === "ADMIN") {
           history.push("/admin");
         }
         Cookies.set("login-token", token); //adding the token in the cookie to maintain sessions
         contextData.setUser(globalUser);
-        
       }
     }
   }

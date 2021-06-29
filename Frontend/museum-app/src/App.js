@@ -14,19 +14,21 @@ function App() {
   });
   const value = { userDetails, setUser }; //passing the values of usestate hook in order to change the global user data anywhere in the children components
   var sessionData = Cookies.get("login-token");
+
   return (
     <div className="App">
       <userDetailContext.Provider value={value}>
-      <Router>
-      <Switch>
-          <Route exact path="/">
-        {/* rendring the gallery after siging in since login in the "/" directory */}
-        {sessionData === undefined ? <Login /> : <Gallery />}{" "}
-        </Route>
-        <Route path="/admin">
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              {/* rendring the gallery after siging in since login in the "/" directory */}
+              {sessionData === undefined ? <Login /> : <Gallery />}{" "}
+            </Route>
+            {/* /admin route is set when an admin log in it will automatically go to the admin panel*/}
+            <Route path="/admin">
               <AdminPanel />
             </Route>
-        </Switch>
+          </Switch>
         </Router>
       </userDetailContext.Provider>
     </div>

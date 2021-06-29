@@ -24,7 +24,7 @@ function Login() {
 
   async function HandleSignIn(event) {
     let token;
-    
+
     if (email === "" || password === "") {
       alert("missing email or password ");
     } else {
@@ -33,7 +33,6 @@ function Login() {
       if (token === undefined) {
         alert("Wring credentials provided");
       } else {
-
         let decodedUserData = jwt.verify(token, "secretkey"); //decode the data in JWT token
         let globalUser = {
           email: decodedUserData.usersigned.Email,

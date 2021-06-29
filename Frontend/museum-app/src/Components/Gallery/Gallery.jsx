@@ -1,7 +1,9 @@
 import Cookies from "js-cookie";
 import React,{useEffect} from "react";
 import Art from "../Art/Art";
+import NavBar from "../NavBar/NavBar";
 import { getArt } from "../../Actions/artActions";
+
 function Gallery() {
     const [pictures, getPictures] = React.useState("");
 
@@ -17,6 +19,8 @@ function Gallery() {
      console.log(pictures,"after rendering ");
   return (
     <div>
+       <NavBar />
+       <h1>Gallery</h1>
        {pictures.map((picture, index) => {
                   return (
                     <Art 

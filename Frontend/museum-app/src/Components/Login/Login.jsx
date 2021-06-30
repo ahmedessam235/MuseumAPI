@@ -32,7 +32,7 @@ function Login() {
       event.preventDefault();
       token = await loginUser(email, password);
       if (token === undefined) {
-        alert("Wring credentials provided");
+        alert("Wrong credentials provided");
       } else {
         let decodedUserData = jwt.verify(token, "secretkey"); //decode the data in JWT token
         let globalUser = {
@@ -41,6 +41,8 @@ function Login() {
           role: decodedUserData.usersigned.Role,
         }; //holder for the decoded data preparing the object to update the global context variable "global variable"
         if (decodedUserData.usersigned.Role === "ADMIN") {
+          Cookies.set("login-token", token); //adding the token in the cookie to maintain sessions
+          contextData.setUser(globalUser);
           history.push("/admin");
         }
         Cookies.set("login-token", token); //adding the token in the cookie to maintain sessions

@@ -32,3 +32,21 @@ export function userIsAdmin(token) {
     return false;
   }
 }
+
+export async function getUsers(token){
+  var response = "";
+  try {
+    response = await axios.get("http://localhost:5000/users", {
+      headers: {
+        "login-token": token,
+      },
+    });
+    if (response.status !== 200) {
+      return response.status;
+    } else {
+      return response.data;
+    }
+  } catch (e) {
+    return response.status;
+  }
+}

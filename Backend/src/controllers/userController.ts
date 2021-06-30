@@ -35,7 +35,7 @@ var User = require("../models/userModel");
             let email:string = req.body.email;
             let password:string = req.body.password;              
             let result:string;
-            result = await loginService.loginUser(email,password);                 
+            result = await loginService.loginUser(email,password,next);                 
             res.send(result);
         } catch (e) {
             next(e);

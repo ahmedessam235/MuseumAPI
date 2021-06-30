@@ -8,10 +8,10 @@ import { nextTick } from "process";
  const jwt = require("jsonwebtoken");
 
 
- async function loginUser(email: string, password: string): Promise < string > {
+ async function loginUser(email: string, password: string,next: NextFunction): Promise < string > {
 
      let token: string;
-
+    
      //1- Exchange email for saved password
      const userData: typeof User = await User.findOne({
          Email: email
@@ -23,7 +23,9 @@ import { nextTick } from "process";
 
      //3- Compare passwords user entered vs stroed in DB   .
      if (userData.Password !== password) {
+         
         throw new Error("Invalid Credentials");
+        
      }
      //4- Create token for the user logged in user.
      const signedUserData = {
@@ -33,11 +35,13 @@ import { nextTick } from "process";
      token = await jwt.sign({
          usersigned: signedUserData
      }, "secretkey", {
-         expiresIn: '1800s'
+         expiresIn: '180m'
      });
      
      //6 - return generated token
      return token;
+    
+    
 
 
  }

@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import { userIsAdmin } from "../../Actions/userActions";
 import { useHistory } from "react-router-dom";
+import Users from "../Users/Users";
 function AdminPanel(props) {
   let history = useHistory();
 
@@ -8,14 +9,14 @@ function AdminPanel(props) {
   var isAdmin = userIsAdmin(token);
 
   if (isAdmin) {
-    //protecting the admin path in case of unauthorized admin access
+    //protecting the admin path in case of unauthorized admin access the proection will be rerouting to the "/" route
     return (
       <div>
-        <h1>welcome to AdminPanel</h1>
+        <Users />
       </div>
     );
   } else {
-    history.push("/");
+    history.push("/");    
     return <h1> you are not authorized here</h1>;
   }
 }

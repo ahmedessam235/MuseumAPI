@@ -1,6 +1,5 @@
 import Cookies from "js-cookie";
 import React, { useEffect } from "react";
-import NavBar from "../NavBar/NavBar";
 import { userDetailContext } from "../../App";
 import { getLoggedInUser, getUsers } from "../../Actions/userActions";
 import { makeStyles } from "@material-ui/core/styles";
@@ -35,7 +34,6 @@ function Users() {
   if (users) {
     return (
       <div>
-        <NavBar />
         <h1>Users</h1>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">

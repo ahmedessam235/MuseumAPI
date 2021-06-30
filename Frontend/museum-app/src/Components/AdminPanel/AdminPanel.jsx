@@ -16,7 +16,7 @@ function AdminPanel(props) {
       </div>
     );
   } else {
-    history.push("/");    
+    history.push("/");
     return <h1> you are not authorized here</h1>;
   }
 }

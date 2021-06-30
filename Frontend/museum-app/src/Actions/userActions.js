@@ -33,7 +33,7 @@ export function userIsAdmin(token) {
   }
 }
 
-export async function getUsers(token){
+export async function getUsers(token) {
   var response = "";
   try {
     response = await axios.get("http://localhost:5000/users", {

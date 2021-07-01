@@ -7,11 +7,16 @@ import "./VerticalNavBar.css"
 function VerticalNavBar() {
     
 return (<div>
-<List className= "test">
+<List className= "VerticalNavBar">
        <ListItem button>
           <ListItemIcon>
           </ListItemIcon>
-          <ListItemText primary="Inbox" />
+          <ListItemText primary="gallery" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+          </ListItemIcon>
+          <ListItemText primary="users" />
         </ListItem>
         </List>
 

@@ -1,0 +1,9 @@
+#NavBar{
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid ;
+    border-color: rgb(225, 225, 225);
+}
+.museum-name{
+    /* border-bottom: 1px dotted; */
+}

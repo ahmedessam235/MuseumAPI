@@ -16,7 +16,7 @@ function AdminPanel(props) {
     return (
       <div>
       <NavBar />
-      <div className="test2">
+      <div className="AdminPanel">
       <VerticalNavBar />
         <Users />
         </div>

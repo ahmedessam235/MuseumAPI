@@ -1,0 +1,11 @@
+.gallery-title{
+    margin-left: 2%;
+}
+.gallery {
+background-color: rgb(247, 247, 252);
+}
+.art{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

@@ -5,7 +5,7 @@ import NavBar from "../NavBar/NavBar";
 import { getArt } from "../../Actions/artActions";
 import { userDetailContext } from "../../App";
 import { getLoggedInUser } from "../../Actions/userActions";
-
+import "./Gallery.css";
 function Gallery() {
   const [pictures, getPictures] = React.useState("");
   var contextData = React.useContext(userDetailContext);
@@ -21,9 +21,10 @@ function Gallery() {
 
   if (pictures) {
     return (
-      <div>
+      <div className="gallery">
         <NavBar />
-        <h1>Gallery</h1>
+        <h1 className="gallery-title">Gallery</h1>
+        <div className="art">
         {pictures.map((picture, index) => {
           return (
             <Art
@@ -36,6 +37,8 @@ function Gallery() {
             />
           );
         })}
+        </div>
+       
       </div>
     );
   } else {

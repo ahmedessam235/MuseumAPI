@@ -2,3 +2,9 @@
     margin-right: 3%;
     margin-bottom: 1.5%;
 }
+.MuiButton-label{
+    margin-right:250px;
+    color: rgb(28, 124, 255);
+    font-weight: bold;
+    font-size: small;
+}

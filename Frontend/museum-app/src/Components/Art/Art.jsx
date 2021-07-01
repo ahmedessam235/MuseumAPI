@@ -2,6 +2,8 @@ import React from "react";
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import './Art.css';
+import {Button} from "@material-ui/core";
+
 function Art(props) {
   return (
     <div className="single-image">
@@ -13,8 +15,8 @@ function Art(props) {
           image={props.picture}
           title="Contemplative Reptile"
         />
-      {/* <img src={props.picture} alt="art piture" /> */}
-      <p>{props.artistName}</p>
+      
+      <Button>{props.artistName}</Button>
       </Card>
     </div>
   );

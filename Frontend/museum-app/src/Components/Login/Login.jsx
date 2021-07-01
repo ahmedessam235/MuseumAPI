@@ -53,25 +53,43 @@ function Login() {
   return (
     <div>
       <Container className="login-form" maxWidth="sm">
-        <Grid container direction="column" justify="center" alignItems="center">
-          <h1>Log In</h1>
-          <TextField
-            id="outlined-basic"
-            label="Email "
-            variant="outlined"
-            onChange={handleEmail}
-            value={email}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Password "
-            variant="outlined"
-            onChange={handlePassword}
-            value={password}
-          />
-          <Button variant="contained" color="primary" onClick={HandleSignIn}>
-            Login
-          </Button>
+        <Grid
+          container
+          spacing={2}
+          direction="column"
+          justify="center"
+          alignItems="center"
+        >
+          <h2 className="login-headline">Log In</h2>
+          <hr />
+          <Grid item>
+            <p>Email</p>
+            <TextField
+              variant="outlined"
+              onChange={handleEmail}
+              value={email}
+              placeholder="input your email in here"
+            />
+          </Grid>
+          <Grid item>
+            <p>Password</p>
+            <TextField
+              variant="outlined"
+              onChange={handlePassword}
+              value={password}
+              placeholder="input your password in here"
+            />
+          </Grid>
+          <Grid item id="button-container">
+            <Button
+              id="login-button"
+              variant="contained"
+              color="primary"
+              onClick={HandleSignIn}
+            >
+              Login
+            </Button>
+          </Grid>
         </Grid>
       </Container>
     </div>

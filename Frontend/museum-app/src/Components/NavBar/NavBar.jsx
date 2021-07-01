@@ -13,12 +13,12 @@ function NavBar() {
   return (
     <AppBar id="NavBar" position="static">
       <Toolbar>
-        <Box className = "museum-name"display="flex" flexGrow={1}>
+        <Box className="museum-name" display="flex" flexGrow={1}>
           <Typography variant="h6">Louvre</Typography>
         </Box>
-        <Box display="flex">
-          <Typography variant="h6">{contextData.userDetails.email}</Typography>
-          <Typography variant="h6">{contextData.userDetails.role}</Typography>
+        <Box>
+          <p className="email">{contextData.userDetails.email}</p>
+          <h6 className="role">{contextData.userDetails.role}</h6>
         </Box>
       </Toolbar>
     </AppBar>

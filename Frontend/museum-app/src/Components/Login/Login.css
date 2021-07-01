@@ -1,4 +1,33 @@
 .login-form{
-    background-color: white;
-    
+     background-color: white;
+     margin-top: 10%;  
+     margin-left: auto;
+     margin-right: auto;  
+     border-radius: 10px;
+
+}
+
+.login-headline{
+margin-bottom: 0;
+}
+
+#login-button{
+    background-color:rgb(85, 65, 215);
+}
+
+.MuiInputBase-root{
+    width: 400px;
+}
+
+.MuiButtonBase-root{
+    width: 400px;   
+}
+
+.MuiGrid-root{
+    margin-top: 60px;
+}
+
+#button-container{
+    margin-top: 30px;
+    margin-bottom: 60px;
 }

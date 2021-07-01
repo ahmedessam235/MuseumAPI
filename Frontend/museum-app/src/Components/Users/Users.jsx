@@ -40,20 +40,46 @@ function Users() {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <TableCell  style={{minWidth:100, maxWidth:100}}>ID</TableCell>
-                <TableCell  style={{minWidth:100, maxWidth:100}} align="right">Email</TableCell>
-                <TableCell   style={{minWidth:100, maxWidth:100}} align="right">Phone Number</TableCell>
+                <TableCell style={{ minWidth: 100, maxWidth: 100 }}>
+                  ID
+                </TableCell>
+                <TableCell
+                  style={{ minWidth: 100, maxWidth: 100 }}
+                  align="right"
+                >
+                  Email
+                </TableCell>
+                <TableCell
+                  style={{ minWidth: 100, maxWidth: 100 }}
+                  align="right"
+                >
+                  Phone Number
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {users.map((item, index) => {
                 return (
                   <TableRow key={item._id}>
-                    <TableCell  style={{minWidth:100, maxWidth:100}} component="th" scope="row">
+                    <TableCell
+                      style={{ minWidth: 100, maxWidth: 100 }}
+                      component="th"
+                      scope="row"
+                    >
                       {index}
                     </TableCell>
-                    <TableCell  style={{minWidth:100, maxWidth:100}} align="right">{item.Email}</TableCell>
-                    <TableCell  style={{minWidth:100, maxWidth:100}}align="right">{item.PhoneNumber}</TableCell>
+                    <TableCell
+                      style={{ minWidth: 100, maxWidth: 100 }}
+                      align="right"
+                    >
+                      {item.Email}
+                    </TableCell>
+                    <TableCell
+                      style={{ minWidth: 100, maxWidth: 100 }}
+                      align="right"
+                    >
+                      {item.PhoneNumber}
+                    </TableCell>
                   </TableRow>
                 );
               })}

@@ -15,12 +15,11 @@ function AdminPanel(props) {
     //protecting the admin path in case of unauthorized admin access the proection will be rerouting to the "/" route
     return (
       <div>
-      <NavBar />
-      <div className="AdminPanel">
-      <VerticalNavBar />
-        <Users />
+        <NavBar />
+        <div className="AdminPanel">
+          <VerticalNavBar />
+          <Users />
         </div>
-       
       </div>
     );
   } else {

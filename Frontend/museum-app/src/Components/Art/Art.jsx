@@ -49,7 +49,7 @@ console.log(props.description);
      <CardMedia
           component="img"
           alt="Contemplative Reptile"
-          height="600"
+          height="400"
           image={props.picture}
           title="Contemplative Reptile"
         />

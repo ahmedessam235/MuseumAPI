@@ -22,7 +22,7 @@ function AdminPanel(props) {
         <NavBar />
         <div className="AdminPanel">
           <VerticalNavBar 
-            controlView={toggleAdminView}  //pass the toggle function to vertical nav ar to control view
+            controlView={toggleAdminView}  //pass the toggle function to vertical nav ar to control view and condtionally render the output from the function
           /> 
           {(adminView==="users")?<Users />  :   <AdminGallery /> } 
                          

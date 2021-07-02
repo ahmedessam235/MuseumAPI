@@ -42,7 +42,6 @@ function Art(props) {
   const handleClose = () => {
     setOpen(false);
   };
-console.log(props.description);
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <Card >

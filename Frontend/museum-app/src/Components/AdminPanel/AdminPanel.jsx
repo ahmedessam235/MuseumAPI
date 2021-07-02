@@ -4,21 +4,28 @@ import { useHistory } from "react-router-dom";
 import Users from "../Users/Users";
 import VerticalNavBar from "../VerticalNavBar/VerticalNavBar";
 import NavBar from "../NavBar/NavBar";
+import AdminGallery from "../AdminGallery/AdminGallery";
 import "./AdminPanel.css";
+import { useState } from "react";
 function AdminPanel(props) {
   let history = useHistory();
-
   var token = Cookies.get("login-token");
   var isAdmin = userIsAdmin(token);
-
+  const [adminView,changeAdminView] = useState("users");  //state change to handle diffeent views for the admin panel by default we will start with users.
+  function toggleAdminView(view){
+    changeAdminView(view);
+  }
   if (isAdmin) {
     //protecting the admin path in case of unauthorized admin access the proection will be rerouting to the "/" route
     return (
       <div>
         <NavBar />
         <div className="AdminPanel">
-          <VerticalNavBar />
-          <Users />
+          <VerticalNavBar 
+            controlView={toggleAdminView}  //pass the toggle function to vertical nav ar to control view
+          /> 
+          {(adminView==="users")?<Users />  :   <AdminGallery /> } 
+                         
         </div>
       </div>
     );

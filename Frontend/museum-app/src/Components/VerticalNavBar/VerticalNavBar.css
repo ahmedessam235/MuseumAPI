@@ -20,6 +20,9 @@
   padding: 15px;
 
 }
+.user-icon:hover {
+    background-color: rgb(85, 65, 215);
+}
 .gallery-icon{
     background-image: url('./supervised_user_circle.png');
     background-size: cover;
@@ -30,5 +33,7 @@
     border-color: rgb(225, 225, 225);
     border-radius: 5px;
     padding: 15px;
-
+}
+.gallery-icon:hover {
+    background-color: rgb(85, 65, 215);
 }

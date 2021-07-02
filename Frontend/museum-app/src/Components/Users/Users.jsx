@@ -45,13 +45,13 @@ function Users() {
                 </TableCell>
                 <TableCell
                   style={{ minWidth: 100, maxWidth: 100 }}
-                  align="right"
+                  // align="right"
                 >
                   Email
                 </TableCell>
                 <TableCell
                   style={{ minWidth: 100, maxWidth: 100 }}
-                  align="right"
+                  // align="right"
                 >
                   Phone Number
                 </TableCell>
@@ -70,13 +70,13 @@ function Users() {
                     </TableCell>
                     <TableCell
                       style={{ minWidth: 100, maxWidth: 100 }}
-                      align="right"
+                      // align="right"
                     >
                       {item.Email}
                     </TableCell>
                     <TableCell
                       style={{ minWidth: 100, maxWidth: 100 }}
-                      align="right"
+                      // align="right"
                     >
                       {item.PhoneNumber}
                     </TableCell>

@@ -77,6 +77,7 @@ function Login() {
               variant="outlined"
               onChange={handlePassword}
               value={password}
+              type="password"
               placeholder="input your password in here"
             />
           </Grid>

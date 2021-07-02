@@ -9,12 +9,16 @@ function VerticalNavBar() {
     <div>
       <List className="VerticalNavBar">
         <ListItem button>
-          <ListItemIcon></ListItemIcon>
-          <ListItemText primary="gallery" />
+          <ListItemIcon>
+            <i className="user-icon"></i>
+          </ListItemIcon>
+          <ListItemText  />
         </ListItem>
         <ListItem button>
-          <ListItemIcon></ListItemIcon>
-          <ListItemText primary="users" />
+          <ListItemIcon>
+          <i className="gallery-icon"></i>
+          </ListItemIcon>
+          <ListItemText  />
         </ListItem>
       </List>
     </div>

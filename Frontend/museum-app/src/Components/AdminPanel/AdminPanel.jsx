@@ -11,8 +11,8 @@ function AdminPanel(props) {
   let history = useHistory();
   var token = Cookies.get("login-token");
   var isAdmin = userIsAdmin(token);
-  const [adminView,changeAdminView] = useState("users");  //state change to handle diffeent views for the admin panel by default we will start with users.
-  function toggleAdminView(view){
+  const [adminView, changeAdminView] = useState("users"); //state change to handle diffeent views for the admin panel by default we will start with users.
+  function toggleAdminView(view) {
     changeAdminView(view);
   }
   if (isAdmin) {
@@ -21,11 +21,10 @@ function AdminPanel(props) {
       <div>
         <NavBar />
         <div className="AdminPanel">
-          <VerticalNavBar 
-            controlView={toggleAdminView}  //pass the toggle function to vertical nav ar to control view and condtionally render the output from the function
-          /> 
-          {(adminView==="users")?<Users />  :   <AdminGallery /> } 
-                         
+          <VerticalNavBar
+            controlView={toggleAdminView} //pass the toggle function to vertical nav ar to control view and condtionally render the output from the function
+          />
+          {adminView === "users" ? <Users /> : <AdminGallery />}
         </div>
       </div>
     );

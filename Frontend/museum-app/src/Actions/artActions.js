@@ -17,4 +17,24 @@ export async function getArt(token) {
     return response.status;
   }
 }
+export async function deleteImage(ID, token) {
+  var response = "";
+  try {
+    response = await axios.delete("http://localhost:5000/art", {
+      headers: {
+        "login-token": token,
+      },
+      data: {
+        id: ID,
+      },
+    });
+    if (response.status !== 200) {
+      return response.status;
+    } else {
+      return response.data;
+    }
+  } catch (e) {
+    return response.status;
+  }
+}
 export default getArt;

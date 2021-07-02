@@ -6,12 +6,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import "./VerticalNavBar.css";
 function VerticalNavBar(props) {
-
-// the two functions call the upper function in the admin panel and change the view state for it.
-  function handleUserClick(){
-   props.controlView("users");
+  // the two functions call the upper function in the admin panel and change the view state for it.
+  function handleUserClick() {
+    props.controlView("users");
   }
-  function handleGalleryClick(){
+  function handleGalleryClick() {
     props.controlView("gallery");
   }
   return (
@@ -21,13 +20,13 @@ function VerticalNavBar(props) {
           <ListItemIcon>
             <i className="user-icon"></i>
           </ListItemIcon>
-          <ListItemText  />
+          <ListItemText />
         </ListItem>
         <ListItem button onClick={handleGalleryClick}>
           <ListItemIcon>
-          <i className="gallery-icon"></i>
+            <i className="gallery-icon"></i>
           </ListItemIcon>
-          <ListItemText  />
+          <ListItemText />
         </ListItem>
       </List>
     </div>

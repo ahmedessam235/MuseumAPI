@@ -1,11 +1,10 @@
 import React from "react";
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import './Art.css';
-import {Button} from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-
+import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
+import "./Art.css";
+import { Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -24,9 +23,9 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    position: 'absolute',
+    position: "absolute",
     width: 1000,
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: theme.shadows[5],
   },
 }));
@@ -44,8 +43,8 @@ function Art(props) {
   };
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <Card >
-     <CardMedia
+      <Card>
+        <CardMedia
           component="img"
           alt="Contemplative Reptile"
           height="400"
@@ -53,28 +52,25 @@ function Art(props) {
           title="Contemplative Reptile"
         />
         <p>{props.description}</p>
-      {/* <Art /> */}
+        {/* <Art /> */}
       </Card>
     </div>
   );
   return (
     <div className="single-image">
-     <Card style = {{maxWidth: 300}}>
-     <CardMedia
+      <Card style={{ maxWidth: 300 }}>
+        <CardMedia
           component="img"
           alt="Contemplative Reptile"
           height="400"
           image={props.picture}
           title="Contemplative Reptile"
         />
-      
-      <Button onClick={handleOpen}>{props.artistName}</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
-        {body}
-      </Modal>
+
+        <Button onClick={handleOpen}>{props.artistName}</Button>
+        <Modal open={open} onClose={handleClose}>
+          {body}
+        </Modal>
       </Card>
     </div>
   );

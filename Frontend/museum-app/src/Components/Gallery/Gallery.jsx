@@ -25,20 +25,19 @@ function Gallery() {
         <NavBar />
         <h1 className="gallery-title">Gallery</h1>
         <div className="art">
-        {pictures.map((picture, index) => {
-          return (
-            <Art
-              key={index}
-              id={index}
-              artistName={picture.Artist}
-              ID={picture._id}
-              picture={picture.Picture}
-              description={picture.Description}
-            />
-          );
-        })}
+          {pictures.map((picture, index) => {
+            return (
+              <Art
+                key={index}
+                id={index}
+                artistName={picture.Artist}
+                ID={picture._id}
+                picture={picture.Picture}
+                description={picture.Description}
+              />
+            );
+          })}
         </div>
-       
       </div>
     );
   } else {

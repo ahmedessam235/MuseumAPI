@@ -11,7 +11,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import "./Users.css";
 
-
 function Users() {
   const [users, renderUsers] = React.useState("");
   var contextData = React.useContext(userDetailContext);
@@ -31,20 +30,16 @@ function Users() {
       <div className="usersTable">
         <h1>Users</h1>
         <TableContainer component={Paper}>
-          <Table  >
+          <Table>
             <TableHead>
               <TableRow>
-                <TableCell style={{ minWidth: 100, maxWidth: 100,width:100 }}>
+                <TableCell style={{ minWidth: 100, maxWidth: 100, width: 100 }}>
                   ID
                 </TableCell>
-                <TableCell
-                  style={{ minWidth: 100, maxWidth: 100,width:100  }}
-                >
+                <TableCell style={{ minWidth: 100, maxWidth: 100, width: 100 }}>
                   Email
                 </TableCell>
-                <TableCell
-                  style={{ minWidth: 100, maxWidth: 100,width:20 }}   
-                >
+                <TableCell style={{ minWidth: 100, maxWidth: 100, width: 20 }}>
                   Phone Number
                 </TableCell>
               </TableRow>
@@ -53,20 +48,11 @@ function Users() {
               {users.map((item, index) => {
                 return (
                   <TableRow key={item._id}>
-                    <TableCell
-                      component="th"
-                      scope="row"
-                    >
+                    <TableCell component="th" scope="row">
                       {index}
                     </TableCell>
-                    <TableCell
-                    >
-                      {item.Email}
-                    </TableCell>
-                    <TableCell
-                    >
-                      {item.PhoneNumber}
-                    </TableCell>
+                    <TableCell>{item.Email}</TableCell>
+                    <TableCell>{item.PhoneNumber}</TableCell>
                   </TableRow>
                 );
               })}

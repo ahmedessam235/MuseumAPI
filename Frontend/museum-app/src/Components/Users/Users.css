@@ -6,3 +6,9 @@
 .MuiTableCell-root{
     max-width: 100px;
 }
+.pagination-buttons-users{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    
+}

@@ -33,14 +33,17 @@ export function userIsAdmin(token) {
   }
 }
 
-export async function getUsers(token,pageNumber) {
+export async function getUsers(token, pageNumber) {
   var response = "";
   try {
-    response = await axios.get(`http://localhost:5000/users?page=${pageNumber}`, {
-      headers: {
-        "login-token": token,
-      },
-    });
+    response = await axios.get(
+      `http://localhost:5000/users?page=${pageNumber}`,
+      {
+        headers: {
+          "login-token": token,
+        },
+      }
+    );
     if (response.status !== 200) {
       return response.status;
     } else {

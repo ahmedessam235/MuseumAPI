@@ -1,11 +1,12 @@
 import Cookies from "js-cookie";
-
 import React, { useState } from "react";
 import Login from "./Components/Login/Login";
 import Gallery from "./Components/Gallery/Gallery";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AdminPanel from "./Components/AdminPanel/AdminPanel";
+
 export var userDetailContext = React.createContext(null); //global user state
+
 function App() {
   const [userDetails, setUser] = useState({
     email: null,

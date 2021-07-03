@@ -5,3 +5,9 @@
 .MuiButtonBase-root{
     width:100px;
 }
+.pagination-buttons-admin-gallery{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    
+}

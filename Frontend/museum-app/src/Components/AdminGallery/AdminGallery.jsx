@@ -20,7 +20,7 @@ function AdminGallery() {
   useEffect(() => {
     async function fetchData() {
       var token = Cookies.get("login-token");
-      const requestedGalleryData = await getArt(token,pageNumber);
+      const requestedGalleryData = await getArt(token, pageNumber);
       renderGalleryData(requestedGalleryData.result);
       setNumberOfPages(requestedGalleryData.totalPages);
     }
@@ -34,7 +34,6 @@ function AdminGallery() {
   const gotoNext = () => {
     setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
   };
-
 
   if (galleryData) {
     async function handleDelete(index) {
@@ -103,13 +102,15 @@ function AdminGallery() {
             </TableBody>
           </Table>
         </TableContainer>
-        <button onClick={gotoPrevious}>Previous</button>
-      {pages.map((pageIndex) => (
-        <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
-          {pageIndex + 1}
-        </button>
-      ))}
-      <button onClick={gotoNext}>Next</button>
+        <div className="pagination-buttons-admin-gallery ">
+          <button onClick={gotoPrevious}>Previous</button>
+          {pages.map((pageIndex) => (
+            <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
+              {pageIndex + 1}
+            </button>
+          ))}
+          <button onClick={gotoNext}>Next</button>
+        </div>
       </div>
     );
   } else {

@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { userDetailContext } from "../../App";
 import { getLoggedInUser, getUsers } from "../../Actions/userActions";
 import Table from "@material-ui/core/Table";
@@ -21,14 +21,14 @@ function Users() {
   useEffect(() => {
     async function fetchData() {
       var token = Cookies.get("login-token");
-      const requestedUsers = await getUsers(token,pageNumber);
+      const requestedUsers = await getUsers(token, pageNumber);
       renderUsers(requestedUsers.result);
       setNumberOfPages(requestedUsers.totalPages);
       getLoggedInUser(token, contextData);
     }
     fetchData();
   }, [pageNumber]);
-  
+
   const gotoPrevious = () => {
     setPageNumber(Math.max(0, pageNumber - 1));
   };
@@ -72,13 +72,15 @@ function Users() {
             </TableBody>
           </Table>
         </TableContainer>
-        <button onClick={gotoPrevious}>Previous</button>
-      {pages.map((pageIndex) => (
-        <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
-          {pageIndex + 1}
-        </button>
-      ))}
-      <button onClick={gotoNext}>Next</button>
+        <div className="pagination-buttons-users ">
+          <button onClick={gotoPrevious}>Previous</button>
+          {pages.map((pageIndex) => (
+            <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
+              {pageIndex + 1}
+            </button>
+          ))}
+          <button onClick={gotoNext}>Next</button>
+        </div>
       </div>
     );
   } else {

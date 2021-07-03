@@ -13,7 +13,7 @@ function Gallery() {
   const [pageNumber, setPageNumber] = useState(0);
   const [numberOfPages, setNumberOfPages] = useState(0);
   var contextData = React.useContext(userDetailContext);
-  const pages = new Array(numberOfPages).fill(null).map((v, i) => i);
+   const pages = new Array(numberOfPages).fill(null).map((v, i) => i);
   useEffect(() => {
     async function fetchData() {
       var token = Cookies.get("login-token");

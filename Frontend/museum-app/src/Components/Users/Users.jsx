@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { userDetailContext } from "../../App";
 import { getLoggedInUser, getUsers } from "../../Actions/userActions";
 import Table from "@material-ui/core/Table";
@@ -12,20 +12,33 @@ import Paper from "@material-ui/core/Paper";
 import "./Users.css";
 
 function Users() {
-  const [users, renderUsers] = React.useState("");
+  const [users, renderUsers] = useState("");
+  const [pageNumber, setPageNumber] = useState(0);
+  const [numberOfPages, setNumberOfPages] = useState(0);
   var contextData = React.useContext(userDetailContext);
+  const pages = new Array(numberOfPages).fill(null).map((v, i) => i);
 
   useEffect(() => {
     async function fetchData() {
       var token = Cookies.get("login-token");
-      const requestedUsers = await getUsers(token);
-      renderUsers(requestedUsers);
+      const requestedUsers = await getUsers(token,pageNumber);
+      renderUsers(requestedUsers.result);
+      setNumberOfPages(requestedUsers.totalPages);
       getLoggedInUser(token, contextData);
     }
     fetchData();
-  }, []);
+  }, [pageNumber]);
+  
+  const gotoPrevious = () => {
+    setPageNumber(Math.max(0, pageNumber - 1));
+  };
+
+  const gotoNext = () => {
+    setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
+  };
 
   if (users) {
+    console.log(users);
     return (
       <div className="usersTable">
         <h1>Users</h1>
@@ -59,6 +72,13 @@ function Users() {
             </TableBody>
           </Table>
         </TableContainer>
+        <button onClick={gotoPrevious}>Previous</button>
+      {pages.map((pageIndex) => (
+        <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
+          {pageIndex + 1}
+        </button>
+      ))}
+      <button onClick={gotoNext}>Next</button>
       </div>
     );
   } else {

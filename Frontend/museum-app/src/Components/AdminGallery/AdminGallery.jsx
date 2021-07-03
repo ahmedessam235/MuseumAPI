@@ -13,15 +13,29 @@ import { Button } from "@material-ui/core";
 import "./AdminGallery.css";
 function AdminGallery() {
   const [galleryData, renderGalleryData] = useState("");
+  const [pageNumber, setPageNumber] = useState(0);
+  const [numberOfPages, setNumberOfPages] = useState(0);
+  const pages = new Array(numberOfPages).fill(null).map((v, i) => i);
 
   useEffect(() => {
     async function fetchData() {
       var token = Cookies.get("login-token");
-      const requestedGalleryData = await getArt(token);
+      const requestedGalleryData = await getArt(token,pageNumber);
       renderGalleryData(requestedGalleryData.result);
+      setNumberOfPages(requestedGalleryData.totalPages);
     }
     fetchData();
-  }, []);
+  }, [pageNumber]);
+
+  const gotoPrevious = () => {
+    setPageNumber(Math.max(0, pageNumber - 1));
+  };
+
+  const gotoNext = () => {
+    setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
+  };
+
+
   if (galleryData) {
     async function handleDelete(index) {
       var token = Cookies.get("login-token");
@@ -89,6 +103,13 @@ function AdminGallery() {
             </TableBody>
           </Table>
         </TableContainer>
+        <button onClick={gotoPrevious}>Previous</button>
+      {pages.map((pageIndex) => (
+        <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
+          {pageIndex + 1}
+        </button>
+      ))}
+      <button onClick={gotoNext}>Next</button>
       </div>
     );
   } else {

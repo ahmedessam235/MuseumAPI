@@ -9,7 +9,7 @@ var User = require("../models/userModel");
      async function getUsers(req: Request, res: Response, next: NextFunction): Promise < void > {
         try {
         let result:typeof User;
-        result =  await  userServices.getUsers(); 
+        result =  await  userServices.getUsers(req,res); 
         res.send(result);
         } catch (e) {
             next(e);

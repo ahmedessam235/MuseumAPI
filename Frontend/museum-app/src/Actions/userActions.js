@@ -44,7 +44,7 @@ export async function getUsers(token) {
     if (response.status !== 200) {
       return response.status;
     } else {
-      return response.data;
+      return response.data.result;
     }
   } catch (e) {
     return response.status;

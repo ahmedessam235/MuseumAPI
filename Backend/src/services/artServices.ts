@@ -51,16 +51,20 @@ async function deleteArt(ID: string): Promise < typeof Art > {
 
 }
 
-async function getArt(): Promise < typeof Art > {
+async function getArt(req:any,res:any): Promise < typeof Art > {
 
     let result: typeof Art;
-
-    result = await Art.find({}, function (err: any, users: any) {
-
-    });
-
+    const PAGE_SIZE = 5;  // specifying the page number
+    const page = parseInt(req.query.page || "0"); //getting the page number from querysent from Front End
+    const total = await Art.countDocuments({});  //count the total number of doucments in the collection
+    result = await Art.find({})
+    .limit(PAGE_SIZE)    //using mongoose to limit the repsonse to fit the desired number requested
+    .skip(PAGE_SIZE * page);  //skipping the rest of the data
+    res.json({
+        totalPages: Math.ceil(total / PAGE_SIZE),
+        result,
+      });
     return result;
-
 }
 
 module.exports = {

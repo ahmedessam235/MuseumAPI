@@ -30,17 +30,22 @@ async function createUser(email: string, password: string, role: string, phoneNu
     return result;
 }
 
-async function getUsers(): Promise < any > {
+async function getUsers(req:any,res:any): Promise < any > {
 
     let result: typeof User;
-
-    result = await User.find({}, function (err: any, users: any) {
-
-    });
-
+    const PAGE_SIZE = 5;
+        const page = parseInt(req.query.page || "0");
+        const total = await User.countDocuments({});
+    result = await User.find({})
+    .limit(PAGE_SIZE)
+    .skip(PAGE_SIZE * page);
+    res.json({
+        totalPages: Math.ceil(total / PAGE_SIZE),
+        result,
+      });
     return result;
-
 }
+
 
 module.exports = {
     createUser,

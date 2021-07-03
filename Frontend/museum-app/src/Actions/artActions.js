@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export async function getArt(token) {
+export async function getArt(token,pageNumber) {
   var response = "";
   try {
-    response = await axios.get("http://localhost:5000/art", {
+    response = await axios.get(`http://localhost:5000/art?page=${pageNumber}`, {
       headers: {
         "login-token": token,
       },

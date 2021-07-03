@@ -9,7 +9,7 @@ var Art = require("../models/artModel");
 async function getArt(req: Request, res: Response, next: NextFunction): Promise < typeof Art > {
         try {
         let result:typeof Art;
-        result =  await  artServices.getArt(); 
+        result =  await  artServices.getArt(req,res); 
         res.status(200).send(result);
         } catch (e) {
             next(e);

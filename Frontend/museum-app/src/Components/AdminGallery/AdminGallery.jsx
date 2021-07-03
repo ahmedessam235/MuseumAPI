@@ -18,7 +18,7 @@ function AdminGallery() {
     async function fetchData() {
       var token = Cookies.get("login-token");
       const requestedGalleryData = await getArt(token);
-      renderGalleryData(requestedGalleryData);
+      renderGalleryData(requestedGalleryData.result);
     }
     fetchData();
   }, []);
@@ -29,7 +29,7 @@ function AdminGallery() {
       id = galleryData[index]._id; //getting the mongodb ID to perfrom delete request
       await deleteImage(id, token);
       const requestedGalleryData = await getArt(token);
-      renderGalleryData(requestedGalleryData);
+      renderGalleryData(requestedGalleryData.result);
     }
     return (
       <div className="usersTable">

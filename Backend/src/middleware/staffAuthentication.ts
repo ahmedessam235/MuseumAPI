@@ -13,7 +13,7 @@ async function authenticateAdmin(req: Request, res: Response, next: NextFunction
         let headers: IncomingHttpHeaders = req.headers;
 
         //Validate that there is a token in header.
-        let adminToken: any = headers["login-token"];
+        let adminToken: any = headers["login-token"];               
         if (!adminToken) {
             return res.status(401).json('Unauthorize user');
         }

@@ -4,7 +4,7 @@ export async function loginUser(email, password) {
   var response = "null";
   try {
     const userData = { email: email, password: password };
-    response = await axios.post("http://localhost:5000/login", userData);
+    response = await axios.post("https://museum-api-backend.herokuapp.com/login", userData);
     if (response.status !== 200) {
       return response.status;
     } else {
@@ -37,7 +37,7 @@ export async function getUsers(token, pageNumber) {
   var response = "";
   try {
     response = await axios.get(
-      `http://localhost:5000/users?page=${pageNumber}`,
+      `https://museum-api-backend.herokuapp.com/users?page=${pageNumber}`,
       {
         headers: {
           "login-token": token,

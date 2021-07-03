@@ -3,7 +3,7 @@ import axios from "axios";
 export async function getArt(token, pageNumber) {
   var response = "";
   try {
-    response = await axios.get(`http://localhost:5000/art?page=${pageNumber}`, {
+    response = await axios.get(`https://museum-api-backend.herokuapp.com/art?page=${pageNumber}`, {
       headers: {
         "login-token": token,
       },
@@ -20,7 +20,7 @@ export async function getArt(token, pageNumber) {
 export async function deleteImage(ID, token) {
   var response = "";
   try {
-    response = await axios.delete("http://localhost:5000/art", {
+    response = await axios.delete("https://museum-api-backend.herokuapp.com/art", {
       headers: {
         "login-token": token,
       },

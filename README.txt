@@ -9,22 +9,26 @@ An API used to serve mini online version of the Louvre it consists of :
 	4 - ability to add,update and delete art
 	5-  creation of new users
 	6 - middleware authentication and authorization using JWT.
-        7 - role based authentication for Users and admins.
-        8 - session presistance using js cookies.
+	7 - role based authentication for Users and admins.
+	8 - session presistance using js cookies.
+	9 - paginated responses.
+	10- buttons for navigation between paginated responses.
+	
         
 	
 	
 API was built using the following :
 
 	1 - Express, Typescript and Node JS for the backend.
-	2 - mongoose for handling database requestes
+	2 - mongoose for handling database requestes and handling pagination
 	3 - mongo DB.
 	4 - JWT token for authetcation
 	5 - js cookies for data presistance.
 	6 - REACT JS for UI implmentation.
 	7 - useContext API for global state handling and saving users/admins data.	
-	8 - material ui for styling and prestyled elements.
+	8 - material ui for styling, prestyled elements and modals
 	9 - React Routers for handling the different components.
+	
 	
 MVC architecture was used for the whole project and the project consists of the following pathes:
   server

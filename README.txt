@@ -30,7 +30,7 @@ API was built using the following :
 	9 - React Routers for handling the different components.
 	
 	
-MVC architecture was used for the whole project and the project consists of the following pathes:
+Microservice architecture was used for the whole project and the project consists of the following pathes:
   server
   ------	
 		1 - models: stored data types 
